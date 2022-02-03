@@ -1,4 +1,4 @@
-# Crypto App
+# Encrypting
 
 Repo for Encrypting
 
