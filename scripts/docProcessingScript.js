@@ -101,7 +101,7 @@ const onFileUpload = (action) => () => {
             resultsDiv.style.display = 'flex';
         })
         .catch((error) => {
-            alert("There was an error with the API, Please review your request.")
+            alert("There was an error with the API.")
             console.log(error)
         })
 

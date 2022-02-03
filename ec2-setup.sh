@@ -10,4 +10,4 @@ git clone https://github.com/Santiago-rin/Encrypting.git
 mv Encrypting html
 cd html/backend || exit
 pip3 install -r requirements.txt
-nohup uvicorn index:app  --reload --host 0.0.0.0 --port 8000 &
+nohup uvicorn index:app  --reload --host 127.0.0.1 --port 8000 &
