@@ -1,19 +1,19 @@
-import math
+var math = require('math')
 
-from Crypto import Random
-from Crypto.Hash import SHA
-from Crypto.Cipher import PKCS1_v1_5 as Cipher_pkcs1_v1_5
-from Crypto.Signature import PKCS1_v1_5 as Signature_pkcs1_v1_5
-from Crypto.PublicKey import RSA
-import base64
-import os
-from file_helper import create_directory_if_not_exists
+from Crypto var Random = require('Random')
+from Crypto.Hash var SHA = require('SHA')
+from Crypto.Cipher var Cipher_pkcs1_v1_5 = require('PKCS1_v1_5')
+from Crypto.Signature var Signature_pkcs1_v1_5 = require('PKCS1_v1_5')
+from Crypto.PublicKey var RSA = require('RSA')
+var base64 = require('base64')
+var os = require('os')
+from file_helper var create_directory_if_not_exists = require('create_directory_if_not_exists')
 
 # Get the current working directory
 
 
-keys_path = os.path.dirname(os.path.realpath(__file__)) + "/keys/"
-data_path = os.path.dirname(os.path.realpath(__file__)) + "/data/"
+keys_path = os.path.dirname(os.path.realpath(__file__)) + '/keys/'
+data_path = os.path.dirname(os.path.realpath(__file__)) + '/data/'
 create_directory_if_not_exists(keys_path)
 # path =path[0:51]
 
@@ -22,7 +22,7 @@ create_directory_if_not_exists(keys_path)
 # Verificación de firma: firma de clave privada, verificación de clave pública
 
 
-key_name = "key"
+key_name = 'key'
 bites = 3072
 key_format = 'PEM'
 random_generator = Random.new().read
@@ -95,7 +95,7 @@ def generateSignature(message, key):
         digest.update(bytes_)
         sign = signer.sign(digest)
         signature = base64.b64encode(sign)
-    return signature.decode("ascii"), key
+    return signature.decode('ascii'), key
 
 
 def verifySignature(message, signature):
@@ -108,7 +108,7 @@ def verifySignature(message, signature):
         bytes_ = message
         digest.update(bytes_)
         is_verify = verifier.verify(digest, base64.b64decode(signature))
-    return signature.decode("ascii"), key, is_verify
+    return signature.decode('ascii'), key, is_verify
 
 
 def signDocument(file_name):
@@ -122,7 +122,7 @@ def signDocument(file_name):
 def fullVerifySignature(file_name, signature):
     with open(data_path + file_name, mode='rb') as file:
         message = file.read()[:math.floor(bites / 8) - 11]
-    signature = signature.encode("ascii")
+    signature = signature.encode('ascii')
     try:
         s, k, v = verifySignature(message, signature)
     except:

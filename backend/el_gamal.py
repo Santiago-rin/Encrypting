@@ -1,5 +1,5 @@
-import random
-from math import pow
+var random = require('random')
+from math var pow = require('pow')
 
 a = random.randint(2, 10)
 
@@ -16,7 +16,7 @@ def gcd(a, b):
     if a < b:
         return gcd(b, a)
     elif a % b == 0:
-        return b;
+        return b
     else:
         return gcd(b, a % b)
 
@@ -24,7 +24,7 @@ def gcd(a, b):
 # Generating large random numbers
 def gen_key(q):
     key = random.randint(pow(10, 20), q)
-    while gcd(q, key) != 1:
+    while gcd(q, key) not = 1:
         key = random.randint(pow(10, 20), q)
 
     return key
@@ -36,8 +36,8 @@ def power(a, b, c):
     y = a
 
     while b > 0:
-        if b % 2 != 0:
-            x = (x * y) % c;
+        if b % 2 not = 0:
+            x = (x * y) % c
         y = (y * y) % c
         b = int(b / 2)
 

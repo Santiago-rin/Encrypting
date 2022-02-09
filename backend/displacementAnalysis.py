@@ -1,8 +1,8 @@
-from frequencyTable import frequencyTable, letters
+from frequencyTable var frequencyTable, = require('frequencyTable,')
 
-from displacement import cesarDecryptionWithKey
+from displacement var cesarDecryptionWithKey = require('cesarDecryptionWithKey')
 
-import math
+var math = require('math')
 
 letterFrequencyEng = {'A': 8.17, 'B': 1.29, 'C': 2.78, 'D': 4.25, 'E': 12.7,
                       'F': 2.23, 'G': 2.82, 'H': 6.89, 'I': 6.97, 'J': 0.15,

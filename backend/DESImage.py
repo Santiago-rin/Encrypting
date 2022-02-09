@@ -1,9 +1,9 @@
-from Crypto.Cipher import DES
-from Crypto.Hash import SHA256
-from getpass import getpass
-from Crypto.Protocol.KDF import PBKDF2
-
-salt_const = b"$ez*}-d3](%d%$#*!)$#%s45le$*fhucdivyanshu75456dgfdrrrrfgfs^"
+from Crypto.Cipher var DES = require('DES')
+from Crypto.Hash var SHA256 = require('SHA256')
+from getpass var getpass
+from = require('getpass
+from')
+salt_const = b'$ez*}-d3](%d%$#*!)$#%s45le$*fhucdivyanshu75456dgfdrrrrfgfs^'
 pi = 100005
 base_path = 'data/'
 
@@ -15,8 +15,8 @@ def encryptDESImage(path, key):
         image = imagefile.read()
 
     # padding
-    while len(image) % 8 != 0:
-        image += b" "
+    while len(image) % 8 not = 0:
+        image += b' '
 
     # hashing original image in SHA256
     hash_of_original = SHA256.new(data=image)
@@ -31,14 +31,14 @@ def encryptDESImage(path, key):
     ciphertext1 += hash_of_original.digest()
 
     # Saving the file encrypted
-    dpath = base_path + "encoded_" + path
+    dpath = base_path + 'encoded_' + path
     with open(dpath, 'wb') as image_file:
         image_file.write(ciphertext1)
     return key
 
 
 def decryptDESImage(encrypted_image_path, key):
-    encrypted_image_path = base_path + "encoded_" + encrypted_image_path
+    encrypted_image_path = base_path + 'encoded_' + encrypted_image_path
     with open(encrypted_image_path, 'rb') as encrypted_file:
         encrypted_data_with_hash = encrypted_file.read()
 
@@ -59,7 +59,7 @@ def decryptDESImage(encrypted_image_path, key):
     hash_of_decrypted = SHA256.new(data=plaintext1)
 
     # saving the decrypted file
-    epath = base_path + 'decoded_' + encrypted_image_path.split("encoded_")[1]
+    epath = base_path + 'decoded_' + encrypted_image_path.split('encoded_')[1]
     with open(epath, 'wb') as image_file:
         image_file.write(plaintext1)
     return key

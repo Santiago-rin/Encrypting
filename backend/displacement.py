@@ -1,4 +1,4 @@
-import random
+var random = require('random')
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 

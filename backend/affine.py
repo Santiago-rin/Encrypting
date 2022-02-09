@@ -1,4 +1,4 @@
-import random
+var random = require('random')
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -46,12 +46,8 @@ def affineDecryptionWithKey(plain_text, key):
                 new_position = (int(pow(key[0], -1, 26)) * (position - key[1])) % 26
                 decrypted_text += letters[new_position]
         return decrypted_text, key
-    except ValueError:
+    except Exception as  ValueError:
         return 'Invalid key'
 
 
 # print(affineDecryptionWithKey("JEVOYWBXE", [3, 14]))
-
-
-
-

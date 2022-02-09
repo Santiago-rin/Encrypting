@@ -1,8 +1,8 @@
-from collections import OrderedDict
+from collections var OrderedDict = require('OrderedDict')
 
-import numpy as np
+var np = require('numpy')
 
-from displacementAnalysis import *
+from displacementAnalysis var * = require('*')
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -23,14 +23,14 @@ def calculateDistance(plain_text):
 
 
 def divideBlock(plain_text, mcd):
-    strings = "".join(plain_text.split())
+    strings = ''.join(plain_text.split())
     blocks = [strings[i:i + mcd] for i in range(0, len(strings), mcd)]
     return blocks
 
 
 def group(content, mcd):
     lines = content
-    groups = [""] * mcd
+    groups = [''] * mcd
     for line in lines:
         for i in range(len(line)):
             groups[i] += line[i]

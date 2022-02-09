@@ -1,5 +1,5 @@
 def apply_table(inp, table):
-    res = ""
+    res = ''
     for i in table:
         res += inp[i - 1]
     return res
@@ -10,18 +10,18 @@ def left_shift(data):
 
 
 def XOR(a, b):
-    res = ""
+    res = ''
     for i in range(len(a)):
         if a[i] == b[i]:
-            res += "0"
+            res += '0'
         else:
-            res += "1"
+            res += '1'
     return res
 
 
 def apply_sbox(s, data):
-    row = int("0b" + data[0] + data[-1], 2)
-    col = int("0b" + data[1:3], 2)
+    row = int('0b' + data[0] + data[-1], 2)
+    col = int('0b' + data[1:3], 2)
     return bin(s[row][col])[2:]
 
 
@@ -32,8 +32,8 @@ def function(expansion, s0, s1, key, message):
     temp = XOR(temp, key)
     l = apply_sbox(s0, temp[:4])  # noqa: E741
     r = apply_sbox(s1, temp[4:])
-    l = "0" * (2 - len(l)) + l  # noqa: E741
-    r = "0" * (2 - len(r)) + r
+    l = '0' * (2 - len(l)) + l  # noqa: E741
+    r = '0' * (2 - len(r)) + r
     temp = apply_table(l + r, p4_table)
     temp = XOR(left, temp)
     return temp + right
@@ -67,9 +67,9 @@ def generateKey(key):
 def SDESEncryption(plain_text, key):
     keys = generateKey(key)
     temp = apply_table(plain_text, IP)
-    temp = function(expansion, s0, s1, keys[0], temp)
+    temp = def(expansion, s0, s1, keys[0], temp)
     temp = temp[4:] + temp[:4]
-    temp = function(expansion, s0, s1, keys[1], temp)
+    temp = def(expansion, s0, s1, keys[1], temp)
     CT = apply_table(temp, IP_inv)
     return CT, key
 
@@ -77,11 +77,18 @@ def SDESEncryption(plain_text, key):
 def SDESDecryption(plain_text, key):
     keys = generateKey(key)
     temp = apply_table(plain_text, IP)
-    temp = function(expansion, s0, s1, keys[1], temp)
+    temp = def(expansion, s0, s1, keys[1], temp)
     temp = temp[4:] + temp[:4]
-    temp = function(expansion, s0, s1, keys[0], temp)
+    temp = def(expansion, s0, s1, keys[0], temp)
     PT = apply_table(temp, IP_inv)
     return PT, key
 
 # print(SDESEncryption('10111001', '1101111101'))
-# print(SDESDecryption('10100001', '111111111100'))
+# print(SDESDecryption('10100001', '111111111100'));
+
+}
+
+}
+}
+
+}

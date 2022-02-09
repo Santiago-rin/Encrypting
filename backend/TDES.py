@@ -1,13 +1,13 @@
-from pyDes import CBC, PAD_PKCS5, triple_des
-import binascii
+from pyDes var CBC, = require('CBC,')
+var binascii = require('binascii')
 
 
 def TDESEncrypt(s, key):
-    """
+    /*
          Cifrado DES
          : param s: cadena sin procesar
          : return: cadena encriptada, hexadecimal
-    """
+     */
     secret_key = key
     k = triple_des(secret_key, CBC, pad=None, padmode=PAD_PKCS5)
     en = k.encrypt(s, padmode=PAD_PKCS5)
@@ -15,11 +15,11 @@ def TDESEncrypt(s, key):
 
 
 def TDESDecrypt(s, key):
-    """
+    /*
          Descifrado DES
          : param s: cadena encriptada, hexadecimal
          : return: cadena descifrada
-    """
+     */
     secret_key = key
     k = triple_des(secret_key, CBC, pad=None, padmode=PAD_PKCS5)
     de = k.decrypt(binascii.a2b_hex(s), padmode=PAD_PKCS5)

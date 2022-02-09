@@ -1,6 +1,6 @@
-import math
-import numpy as np
-import sympy
+var math = require('math')
+var np = require('numpy')
+var sympy = require('sympy')
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -37,6 +37,6 @@ def hillAnalysisSizeKnow(plain_text, encrypted_text, m):
         K = np.array(K).astype(np.int64).tolist()
         return K
     except:
-        return "invalid size of key"
+        return 'invalid size of key'
 
 # print(hillAnalysisSizeKnow('FRIDAY','PQCFKU',2))

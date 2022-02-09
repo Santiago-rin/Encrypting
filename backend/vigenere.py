@@ -1,4 +1,4 @@
-import random
+var random = require('random')
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -19,7 +19,7 @@ def vigenereEncryptionWithKey(plain_text, key):
 
 def vigenereEncryptionWithNoKey(plain_text):
     encrypted_text = ''
-    keys = ["PYTHON", "JUMBLE", "EASY", "DIFFICULT", "ANSWER", "XYLOPHONE", "ATTACK", "DEFEND"]
+    keys = ['PYTHON', 'JUMBLE', 'EASY', 'DIFFICULT', 'ANSWER', 'XYLOPHONE', 'ATTACK', 'DEFEND']
     key = keys[random.randint(0, len(keys) - 1)]
     count = 0
     for i in range(len(plain_text)):

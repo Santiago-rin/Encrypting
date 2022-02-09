@@ -1,13 +1,13 @@
-import pickle
-import numpy as np
-import imageio
-from numpy.linalg import det
+var pickle = require('pickle')
+var np = require('numpy')
+var imageio = require('imageio')
+from numpy.linalg var det = require('det')
 # import matplotlib.pyplot as plt
-import pathlib
-import os
+var pathlib = require('pathlib')
+var os = require('os')
 
 current_folder_path = str(pathlib.Path(__file__).parent.resolve())
-data_folder_path = current_folder_path + "/data"
+data_folder_path = current_folder_path + '/data'
 
 
 def transform(np_array, shape):
@@ -16,7 +16,7 @@ def transform(np_array, shape):
 
 def read_image(image_file_name):
     """ Read an image and return a one hot vector of the image"""
-    image_file_name = data_folder_path + "/" + image_file_name
+    image_file_name = data_folder_path + '/' + image_file_name
     img = imageio.imread(image_file_name)
     # print(img.shape)
     reshape_value = 1
@@ -41,7 +41,7 @@ def read_image(image_file_name):
 
 class Hill:
     def __init__(self, data, file_name, key_path=None):
-        file_name = data_folder_path + "/" + file_name
+        file_name = data_folder_path + '/' + file_name
 
         self.data = data
 
@@ -52,7 +52,7 @@ class Hill:
             # print('here')
             # Load the key if she exist in the current dir
             # print(key_path)
-            self._key = pickle.load(open(key_path, "rb"))
+            self._key = pickle.load(open(key_path, 'rb'))
             # print('Usigng the args -k ' + key_path)
         else:
             file_name = file_name + '.key'
@@ -60,7 +60,7 @@ class Hill:
             if os.path.isfile(file_name):
                 # print('or here')
                 # Load the key if she exist in the current dir
-                self._key = pickle.load(open(file_name, "rb"))
+                self._key = pickle.load(open(file_name, 'rb'))
                 # print('Using the ' + file_name)
             else:
                 # Generate a random key
@@ -71,7 +71,7 @@ class Hill:
                     self._key = np.random.random_integers(0, 100, (self.chunk, self.chunk))
 
                 # Save the key in a pickle
-                pickle.dump(self._key, open(file_name, "wb"))
+                pickle.dump(self._key, open(file_name, 'wb'))
 
         # Get the inverse of the key
         self.reversed_key = np.matrix(self._key).I.A
@@ -84,7 +84,7 @@ class Hill:
             if data_shape % i == 0:
                 return i
 
-    @property
+    key = property(key)
     def key(self):
         return self._key
 
@@ -139,9 +139,9 @@ def hillImageEncryption(image, image_file_name, hill, original_shape):
     encoded_image = encoded_image.astype('uint8')
 
     # Save the image
-    encoded_image_path = data_folder_path + "/" + encoded_img_name
+    encoded_image_path = data_folder_path + '/' + encoded_img_name
     imageio.imwrite(encoded_image_path, encoded_image)
-    pickle.dump(encoded_image_vector, open(encoded_image_path + '.pk', "wb"))
+    pickle.dump(encoded_image_vector, open(encoded_image_path + '.pk', 'wb'))
 
     return encoded_image, encoded_image_path
 
@@ -164,7 +164,7 @@ def hillImageDecryption(image, image_file_name, hill, original_shape):
     decoded_img_name = 'decoded_{0}.{1}'.format(img_name, img_extension)
 
     # Save the image
-    decoded_image_path = data_folder_path + "/" + decoded_img_name
+    decoded_image_path = data_folder_path + '/' + decoded_img_name
     imageio.imwrite(decoded_image_path, decoded_image)
 
     return decoded_image

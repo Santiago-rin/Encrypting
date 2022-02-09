@@ -1,4 +1,4 @@
-import numpy as np
+var np = require('numpy')
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 

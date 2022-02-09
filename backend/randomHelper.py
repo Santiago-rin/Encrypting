@@ -1,5 +1,5 @@
-import string
-import random
+var string = require('string')
+var random = require('random')
 
 
 def generate_random_string(S=8):
@@ -8,6 +8,6 @@ def generate_random_string(S=8):
 
 
 def generate_random_binary_string(S=8):
-    list_ = "01"
+    list_ = '01'
     ran = ''.join(random.choices(list_, k=S))
     return str(ran)

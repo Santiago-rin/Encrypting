@@ -7,10 +7,10 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.0/howto/deployment/asgi/
  */
 
-var os = require('os')
+var os = require('os');
 
-from django.core.asgi var get_asgi_application = require('get_asgi_application')
+from django.core.asgi var get_asgi_application = require('get_asgi_application');
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.settings');
 
-application = get_asgi_application()
+application = get_asgi_application();

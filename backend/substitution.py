@@ -1,4 +1,4 @@
-import random
+var random = require('random')
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -21,7 +21,7 @@ def sustitutionEncryptionNoKey(plain_text):
     for j in range(len(letters_aux)):
         choice = random.choice(letters_aux)
         key += choice
-        letters_aux = letters_aux.replace(choice, "")
+        letters_aux = letters_aux.replace(choice, '')
     for i in range(len(plain_text)):
         if plain_text[i] == ' ':
             encrypted_text += ' '
